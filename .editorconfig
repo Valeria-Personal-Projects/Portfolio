@@ -14,3 +14,33 @@ quote_type = single
 [*.md]
 max_line_length = off
 trim_trailing_whitespace = false
+
+# EditorConfig is awesome: https://EditorConfig.org
+
+# top-most EditorConfig file
+
+
+# Newline character
+# end_of_line = lf
+
+
+
+# TypeScript-specific settings
+# [*.ts]
+# Enforce semicolons at the end of statements
+# semicolon = true
+
+
+# Enforce consistent spacing around type annotations
+# space_before_type_colon = false
+# space_after_type_colon = true
+
+# Enforce consistent spacing inside object literal braces
+# space_after_opening_brace_in_object_literal = false
+# space_before_closing_brace_in_object_literal = false
+# space_after_comma_in_object_literal = true
+
+# Enforce consistent spacing inside array literal braces
+# space_after_opening_square_bracket = false
+# space_before_closing_square_bracket = false
+# space_after_comma_in_array_literal = true
