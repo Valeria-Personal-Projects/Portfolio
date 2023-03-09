@@ -28,19 +28,19 @@ trim_trailing_whitespace = false
 # TypeScript-specific settings
 # [*.ts]
 # Enforce semicolons at the end of statements
-# semicolon = true
+semicolon = true
 
 
 # Enforce consistent spacing around type annotations
-# space_before_type_colon = false
-# space_after_type_colon = true
+space_before_type_colon = true
+space_after_type_colon = true
 
 # Enforce consistent spacing inside object literal braces
-# space_after_opening_brace_in_object_literal = false
-# space_before_closing_brace_in_object_literal = false
-# space_after_comma_in_object_literal = true
+space_after_opening_brace_in_object_literal = true
+space_before_closing_brace_in_object_literal = true
+space_after_comma_in_object_literal = true
 
 # Enforce consistent spacing inside array literal braces
-# space_after_opening_square_bracket = false
-# space_before_closing_square_bracket = false
-# space_after_comma_in_array_literal = true
+space_after_opening_square_bracket = true
+space_before_closing_square_bracket = true
+space_after_comma_in_array_literal = true
