@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: clone
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: use node.js
         uses: actions/setup-node@v1
         with:
@@ -16,3 +16,27 @@ jobs:
 
       - name: test
         run: npm test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+
+      - name: Build the Angular app
+        run: npm run build -- --configuration=production
+
+
+      - name: Build Docker image
+        run: docker build -t valeria-portfolio .
+      # Log in to Docker Hub
+      - name: Login to Docker Hub
+        env: 
+          DOCKER_USERNAME: ${{secrets.DOCKER_USERNAME}}
+          DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
+        run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+        # Tag the Docker image
+      - name: Tag the Docker image
+        run: docker tag valeria-portfolio:latest ${{secrets.DOCKER_USERNAME}}/valeria-portfolio:$GITHUB_RUN_ID
+      # Push the Docker image to Docker Hub
+      - name: Push the Docker image
+        run: docker push ${{secrets.DOCKER_USERNAME}}/valeria-portfolio:$GITHUB_RUN_ID
+      # Remove and logout
+      - name: Remove the image and logout from Docker
+        run: |
+          docker image prune -a -f
+          docker logout
